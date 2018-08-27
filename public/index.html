@@ -1,9 +1,212 @@
 <!DOCTYPE html>
+
 <html>
-  <head>
-    <title>Erm hey.</title>
-  </head>
-  <body>
-    <img src="Dr-Evil.png">
-  </body>
+<head>
+    <meta name="Author" content="Wesley Huber"/>
+    <title>Numerology App</title>
+    <script type="text/javascript">
+      
+              var sumFirst = 0;
+              var sumMiddle = 0;
+              var sumLast = 0;
+              var realMagic = 0;
+              var total = 0;
+        
+        function printMagicNum(){
+       
+            
+            var alph = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+           //want this array to be smaller but oh well
+            var nums = ["1","2","3","4","5","6","7","8","9", "1","2","3","4","5","6","7","8","9", "1","2","3","4","5","6","7","8"];
+       
+       //merge arrays
+            Array.prototype.zip = function (arr){
+                return this.map(function(e,i){
+                    return [e,arr[i]];
+                    })
+            };
+            var alphNums2 = alph.zip(nums);
+
+            
+            var firstName = document.getElementById("firstName").value.toLowerCase();
+            var middleName = document.getElementById("middleName").value.toLowerCase();
+            var lastName = document.getElementById("lastName").value.toLowerCase();
+            
+            var para = document.createElement("p");
+        
+            var node = document.createTextNode(firstName + " "  +  lastName );
+            para.appendChild(node);
+            var element = document.getElementById("content");
+            element.appendChild(para);
+         
+            var firstChars = firstName.split('');
+            var middleChars = middleName.split('');
+            var lastChars = lastName.split('');
+
+            
+            //Get the sum of first name letters
+            for (i = 0; i < firstChars.length; i++){
+                //document.write("<p>" + firstChars[i] + "</p>");
+                for(j = 0; j < alphNums2.length; j++){
+                    if (alphNums2[j][0] == firstChars[i]) {
+                        //
+                        var magicNum = alphNums2[j];
+                        //document.write("<p>" + magicNum[1] + "</p>");
+                        sumFirst = sumFirst + parseInt(magicNum[1]);
+                    }
+                }
+            }
+            //document.write("<p> Sum First: " + sumFirst + "</p>");
+            //Get the sum of middle name letters
+             for (i = 0; i < middleChars.length; i++){
+                //document.write("<p>" + firstChars[i] + "</p>");
+                for(j = 0; j < alphNums2.length; j++){
+                    if (alphNums2[j][0] == middleChars[i]) {
+                        //
+                        var magicNum = alphNums2[j];
+                        //document.write("<p>" + magicNum[1] + "</p>");
+                        sumMiddle = sumMiddle + parseInt(magicNum[1]);
+                    }
+                }
+            }
+           // document.write("<p> Sum Middle: " + sumMiddle + "</p>");
+            
+            //Get the sum of Last name letters
+            for (i = 0; i < lastChars.length; i++){
+                //document.write("<p>" + firstChars[i] + "</p>");
+                for(j = 0; j < alphNums2.length; j++){
+                    if (alphNums2[j][0] == lastChars[i]) {
+                        //
+                        var magicNum = alphNums2[j];
+                        //document.write("<p>" + magicNum[1] + "</p>");
+                        sumLast = sumLast + parseInt(magicNum[1]);
+                    }
+                }
+            }
+            //document.write("<p> Sum Last: " + sumLast + "</p>");
+            
+             total = sumFirst + sumMiddle + sumLast;
+            var totalString = total.toString();
+            var totalChars = totalString.split('');
+             realMagic = parseInt(totalChars[0]) + parseInt(totalChars[1]);
+            if (realMagic >= 10) {
+                //code
+                reduceMagic = realMagic.toString();
+                reduceMagicChars = reduceMagic.split('');
+                reduceMagicTotal = parseInt(reduceMagicChars[0]) + parseInt(reduceMagicChars[1]);
+                //document.write("your number is: " + reduceMagicTotal);
+                 var para = document.createElement("p");
+        
+            var node = document.createTextNode("your number is: " + reduceMagicTotal);
+            para.appendChild(node);
+            var element = document.getElementById("content");
+            element.appendChild(para);
+            }
+            else if (realMagic < 10){
+            //document.write("your number is: " + realMagic);
+             var para = document.createElement("p");
+              var para2 = document.createElement("p");
+             var btn = document.createElement("button");        // Create a <button> element
+             btn.setAttribute("id", "show-calc"); //set an ID for btn
+             btn.setAttribute("onclick", "showCalc()");
+             var t = document.createTextNode("Show Calculation"); 
+             btn.appendChild(t);
+        
+            var node = document.createTextNode("your number is: " + realMagic);
+            para.appendChild(node);
+            var node2;
+            if(realMagic == "1" || realMagic == 1){
+            node2 = document.createTextNode("Number One: One is the leader. The number one indicates the ability to stand alone, and is a strong vibration. Ruled by the Sun. Keywords: independent, creative, original, ambitious, determined, self-assured. If expressed negatively: arrogant, stubborn, impatient, self-centered. As lovers: Number ones take the lead in love. Love and/or the chase is of utmost importance to these lovers. There can be self-centeredness, however. These lovers are willing to experiment, and they can be quite exciting–they can also require a lot of excitement because they can bore easily.");
+            }
+             if(realMagic == "2" || realMagic == 2){
+                node2 = document.createTextNode("Number Two: This is the mediator and peace-lover. The number two indicates the desire for harmony. It is a gentle, considerate, and sensitive vibration. Ruled by the Moon. Keywords: diplomatic, warm, peaceful, sensitive. If expressed negatively: too dependent, manipulative, passive-aggressive. As lovers: Number Twos will bend over backwards to keep a relationship running smoothly. They offer emotional security to their lovers. The number two is associated with the Moon and, since the Moon rules Cancer in astrology, is similar to the Cancer vibration.");
+            }
+             if(realMagic == "3" || realMagic == 3){
+                node2 = document.createTextNode("Number Three: Number Three is a sociable, friendly, and outgoing vibration. Kind, positive, and optimistic, Three’s enjoy life and have a good sense of humor. Ruled by Jupiter. Keywords: jovial, friendly, positive, adventurous, self-expressive. If expressed negatively: extravagant, scattered, superficial. As lovers: Number Threes are fun, energetic, and willing to experiment. These lovers need space and contact with others in order to feel content. If they feel confined, they will be unhappy and restless. Allowed the freedom to socialize and scatter their energies, they are exciting and happy lovers.");
+            }
+             if(realMagic == "4" || realMagic == 4){
+                node2 = document.createTextNode("Number Four: This is the worker. Practical, with a love of detail, Fours are trustworthy, hard-working, and helpful. Ruled by Uranus. Keywords: trustworthy, helpful, steady, logical, self-disciplined, problem-solving. If expressed negatively: contrary, stubborn, narrow. As lovers: Although steady and generally trustworthy, Fours can be quite emotional and frustrated if they feel caged in. They tend to need some level of confrontation in their love lives. A relationship that stagnates will bring out their contrary nature. They love to solve problems, and if allowed to “take on” and tackle predicaments, they are very loyal lovers.");
+            }
+             if(realMagic == "5" || realMagic == 5){
+                node2 = document.createTextNode("Number Five: This is the freedom lover. The number five is an intellectual vibration. These are “idea” people with a love of variety and the ability to adapt to most situations. Ruled by Mercury. Keywords: adaptable, freedom-loving, romantic, resourceful, witty, fun-loving, curious, flexible, accommodating. If expressed negatively, non-committal, irresponsible, inconsistent. As lovers: These lovers are generally attractive to others, as they are adaptable, curious, and friendly. Their wit and love of fun is unmistakable. In order to be happy in love, they need some level of change and variety. They also require mental stimulation. They are quick to adapt to ups and downs, but when under-stimulated, they can be inconsistent and resisting of making commitments.");
+            }
+             if(realMagic == "6" || realMagic == 6){
+                node2 = document.createTextNode("Number Six: This is the peace lover. The number six is a loving, stable, and harmonious vibration. Ruled by Venus. Keywords: compassionate, stable, family-loving, trustworthy, domesticated. If expressed negatively, superficial, jealous, possessive, unwilling to change. As lovers: Number Sixes have a deep dislike of discord and will generally work hard at keeping the peace. They are very attached to their homes and their families. At their best, they are devoted and stable partners who do whatever they can to maintain balance and harmony. At their worst, they take their peace-loving natures too far, and become lethargic, diplomatic to the point of superficiality, and jealous.");
+            }
+             if(realMagic == "7" || realMagic == 7){
+                node2 = document.createTextNode("Number Seven: This is the deep thinker. The number seven is a spiritual vibration. These people are not very attached to material things, are introspective, and generally quiet. Ruled by Neptune. Keywords: unusual, introspective, intuitive, psychic, wise, reserved. If expressed negatively: melancholic, odd, leaves too much to chance, hard to reach. As lovers: These lovers are a little spaced out, and sometimes hard to reach and to understand. However, their disinterest in material things and focus on spirituality makes for interesting, if a little kooky, bed partners and mates. They are intuitive, some are psychic, and although they can be loners at different times in their lives, they are often devoted partners. They can reach levels of intimacy and romance beyond many people’s imaginations. However, their goals in love may be too lofty and thus they can be prone to disappointment when relationships inevitably fall short of ideal.");
+            }
+             if(realMagic == "8" || realMagic == 8){
+                node2 = document.createTextNode("Number Eight: This is the manager. Number Eight is a strong, successful, and material vibration. Ruled by Saturn. Keywords: ambitious, business-minded, practical, leading, authoritative, successful, courageous, accomplished, organized.  If expressed negatively: tense, narrow, materialistic, forceful. As lovers: These lovers take a commitment with responsibility and bravery. When they treat relationships like business deals, however, they can easily alienate partners and fall short of creating a tolerant and romantic atmosphere. Eights are generally practical and secure, and offer their mates stability and security.");
+            }
+             if(realMagic == "9" || realMagic == 9){
+                node2 = document.createTextNode("Number Nine: This is the teacher. Number Nine is a tolerant, somewhat impractical, and sympathetic vibration. Ruled by Mars. Keywords: jack of all trades, humanitarian, sympathetic, helpful, emotional, tolerant, active, determined. If expressed negatively: financially careless, moody, bullying, overly emotional, sullen, restless. As lovers: These lovers are involved and helpful. Because they are sympathetic, they can easily be doormats. They show their love by helping their partners, and assuming their lovers’ problems. If triggered, their emotions can be volcanic, and a seemingly meek personality can resort to bullying tactics when unhappy.");
+            }
+            para2.appendChild(node2);
+            var element = document.getElementById("content");
+            var element1 = document.getElementById("content");
+             var element2 = document.getElementById("content");
+            
+            para.innerHTML+= para2.outerHTML + btn.outerHTML;
+            
+            element.appendChild(para);
+            // element1.appendChild(para2);
+            //element2.appendChild(btn);
+            }
+            
+        }
+        
+       function showCalc(){
+         var element2 = document.getElementById("content");
+            var paraFirst = document.createElement("p");
+            var nodeFirst = document.createTextNode("sum of the digits in first name is: " + sumFirst);
+            paraFirst.appendChild(nodeFirst);
+             element2.appendChild(paraFirst);
+             var paraSecond = document.createElement("p");
+            var nodeSecond = document.createTextNode("sum of the digits in middle name is: " + sumMiddle);
+            paraSecond.appendChild(nodeSecond);
+             element2.appendChild(paraSecond);
+              var paraThird = document.createElement("p");
+            var nodeThird = document.createTextNode("sum of the digits in last name is: " + sumLast);
+            paraThird.appendChild(nodeThird);
+             element2.appendChild(paraThird);
+             var paraFourth = document.createElement("p");
+            var nodeFourth = document.createTextNode("Total = " + sumFirst + " + " + sumMiddle + " + " + sumLast + " = " + total + "  " + "reduced to: " + realMagic);
+            paraFourth.appendChild(nodeFourth);
+             element2.appendChild(paraFourth);
+             
+             var paraFifth = document.createElement("p");
+            var nodeFifth = document.createTextNode("Please refresh the page before re-submitting the form");
+            paraFifth.appendChild(nodeFifth);
+             element2.appendChild(paraFifth);
+             
+             var btn2 = document.createElement("button");        // Create a <button> element
+             btn2.setAttribute("id", "reset"); //set an ID for btn
+             btn2.setAttribute("onclick", "location.reload(true)");
+             var t2 = document.createTextNode("Reset Page"); 
+             btn2.appendChild(t2);
+             element2.appendChild(btn2);
+             
+       }
+
+    </script>
+</head>
+
+<body >
+    
+    <form id="nameInfo" onsubmit="">
+        first name: <input type="text" id="firstName" name="firstName" value="" />
+        middle name: <input type="text" id="middleName" name="middleName" value="" />
+        last name: <input type="text" id="lastName" name="lastName" value="" />
+        <input type="button" value="submit" onclick="printMagicNum()"/>
+        <input type="button" value="reset" onclick="location.reload(true);"/>
+        
+    </form>
+    <div id="content">
+        
+    </div>
+
+
+
+</body>
 </html>
