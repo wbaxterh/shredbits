@@ -137,9 +137,14 @@
                      if(reduceMagicTotal == "9" || reduceMagicTotal == 9){
                         node2 = document.createTextNode("Number Nine: This is the teacher. Number Nine is a tolerant, somewhat impractical, and sympathetic vibration. Ruled by Mars. Keywords: jack of all trades, humanitarian, sympathetic, helpful, emotional, tolerant, active, determined. If expressed negatively: financially careless, moody, bullying, overly emotional, sullen, restless. As lovers: These lovers are involved and helpful. Because they are sympathetic, they can easily be doormats. They show their love by helping their partners, and assuming their lovers’ problems. If triggered, their emotions can be volcanic, and a seemingly meek personality can resort to bullying tactics when unhappy.");
                     }
+                    
                     para.appendChild(node);
                     para2.appendChild(node2);
                     var element = document.getElementById("content");
+                       var img = document.createElement("img"); // create <img> element
+             img.setAttribute("src", "Numerology-Alphabet-Chart.jpg");
+             img.setAttribute("id","chart-img");
+             //element.appendChild(img);
                     
                     para.innerHTML+= para2.outerHTML + btn.outerHTML;
                     
@@ -192,7 +197,7 @@
              var element2 = document.getElementById("content");
             
             para.innerHTML+= para2.outerHTML + btn.outerHTML;
-            
+            //element.appendChild(img);
             element.appendChild(para);
             // element1.appendChild(para2);
             //element2.appendChild(btn);
@@ -202,6 +207,10 @@
         
        function showCalc(){
          var element2 = document.getElementById("content");
+          var img = document.createElement("img"); // create <img> element
+             img.setAttribute("src", "Numerology-Alphabet-Chart.jpg");
+             img.setAttribute("id","chart-img");
+             element2.appendChild(img);
             var paraFirst = document.createElement("p");
             var nodeFirst = document.createTextNode("sum of the digits in first name is: " + sumFirst);
             paraFirst.appendChild(nodeFirst);
@@ -224,7 +233,8 @@
             paraFifth.appendChild(nodeFifth);
              element2.appendChild(paraFifth);
              
-             var btn2 = document.createElement("button");        // Create a <button> element
+             var btn2 = document.createElement("button");// Create a <button> element
+            
              btn2.setAttribute("id", "reset"); //set an ID for btn
              btn2.setAttribute("onclick", "location.reload(true)");
              var t2 = document.createTextNode("Reset Page"); 
@@ -306,12 +316,17 @@
             padding-right: 20px;
             
         }
+        #content p{
+            line-height: 1.6em;
+        }
         #content input[type="button"]{
             background-color: #4C67AD;
             padding: 15px 32px;
             text-align: center;
         }
-      
+      #show-calc{
+        margin-bottom: 20px;
+      }
         #show-calc, #reset{
               background-color: #4C67AD; /* Blue */
             border: none;
@@ -327,6 +342,16 @@
             position: relative;
             top: 20px;
             outline: none;
+        }
+        #chart-img{
+            display:block;
+            margin: 0 auto;text-align: center;
+            max-width: 500px;
+        }
+        @media screen and (max-width: 800px){
+            #chart-img{
+                width: 300px;
+            }
         }
     </style>
     <div id="top">
