@@ -24,7 +24,7 @@ module.exports = {
       key: '~/.ssh/bitcoin-tracker.pem',
       ref  : 'origin/master',
       repo : 'git@github.com:wbaxterh/shredbits.git',
-      path : '/home/ubuntu/tutorial-2',
+      path : '/home/ubuntu/shredbits-2',
       'post-deploy' : 'npm install && pm2 startOrRestart ecosystem.config.js'
     }
   }
