@@ -13,6 +13,21 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 	
+	<style>
+.video_wrapper { 
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 25px;
+    height: 0;
+}
+.video_wrapper video { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+</style>
 </head>
 <body>
 <video width="320" height="240" controls>
@@ -20,5 +35,14 @@
   <source src="movie.ogg" type="video/ogg">
 Your browser does not support the video tag.
 </video>
+<div class="video_wrapper">
+  <video width="640" height="360" controls="" autoplay="loop">
+    <!-- MP4 must be first for iPad! -->
+    <source src="shredbitsintroWidescreen.mp4" type="video/mp4"><!-- Safari / iOS, IE9 -->
+   <!-- <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm"><!-- Chrome10+, Ffx4+, Opera10.6+ -->
+    <!--<source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg"><!-- Firefox3.6+ / Opera 10.5+ -->    
+    </video>
+</div>
+
 	
 </body>
