@@ -54,7 +54,7 @@ input[type=submit]:hover {
 #wrapper {
   border-radius: 5px;
   background-color: #f2f2f2;
-  padding: 20px;
+  padding: 20px 0;
   width: 100%;
   bottom: 0px;
   height: 400px;
@@ -70,6 +70,8 @@ input[type=submit]:hover {
   width: 100%;
   text-align: center;
   margin: 0 auto;
+  padding: 20px 0;
+  overflow: hidden;
 }
 </style>
 <body>
@@ -103,8 +105,10 @@ input[type=submit]:hover {
 
    
     <input type="submit" id="calculate" value="Calculate Earnings">
+     <div id="answer"></div>
   </form>
-  <div id="answer"></div>
+  <div style="display: none;">made by wes huber</div>
+ 
 </div>
 
         <script>
