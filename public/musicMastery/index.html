@@ -19,9 +19,8 @@
     font-family: 'Roboto', sans-serif;
     overflow-x: hidden;
     background-color: #9B7D29;
-    /*background-image: url('goldTexture.png');*/
-    background-repeat: initial;
-    background-size: auto; 
+    background-color: #000;
+ 
 
   }
   h1{
@@ -29,16 +28,22 @@
     margin:  0 auto;
     text-align: center;
     width: 100%;
-    padding: 10px 0px;
+    color: #9B7D29;
+    border-bottom: 2px solid #9B7D29;
+/*    text-shadow: 1px 1px #9B7D29;*/
+    padding: 20px 0px;
    /* background: #fff;*/
     font-family: 'Ubuntu', sans-serif;
     letter-spacing: 5px;
+       background-image: url('Marble.jpg');
+    background-repeat: no-repeat;
+    background-size: auto; 
   }
   form{
     max-width: 800px;
     display: block;
     margin: 0 auto;
-    background-color:
+    background-color:#f2f2f2;
     padding: 0px 20px;
     border-radius: none;
   }
@@ -63,6 +68,7 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+/*  background-image: url('Gold.jpg');*/
 }
 
 input[type=submit]:hover {
@@ -80,8 +86,9 @@ input[type=submit]:hover {
 }
 #logo{
   display: block;
-  max-width: 300px;
+  max-width: 500px;
   margin: 0 auto;
+  padding: 80px 0;
   text-align: center;
 }
 #answer{
@@ -92,6 +99,18 @@ input[type=submit]:hover {
   padding: 20px 0;
   overflow: hidden;
 }
+#footer{
+  display: block;
+  width: 100%;
+  margin: 0 auto;
+  background: #000;
+  
+  @media screen and (max-width:700px){
+  #logo{
+    max-width: 350px;
+  }
+}
+
 </style>
 <body>
  
@@ -100,7 +119,7 @@ input[type=submit]:hover {
 <h3>Using CSS to style an HTML Form</h3>-->
 
 <div id="wrapper">
-  <form  method="POST">
+  <form  method="POST" name="musiccalculator">
      <label for="streaming_service">Choose A Streaming Service</label>
     <select id="streaming_service" name="streaming_service">
       <!--<option selected="selected" class="" value="">Choose Streaming Service</option>-->
@@ -131,7 +150,9 @@ input[type=submit]:hover {
   <div style="display: none;">made by wes huber</div>
  
 </div>
-<img id="logo" src="logo.png" />
+<div id="footer">
+<img id="logo" src="Music Mastery-Logo FINAL3D-medium.png" />
+</div>
 
         <script>
             $(document).ready(function () {
@@ -154,18 +175,35 @@ input[type=submit]:hover {
                     $("#modal-overlay").removeClass("closed");
                     $("#modal2").removeClass("closed");
                 });
-                
+                function ValidateEmail(inputText)
+{
+var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+if(inputText.value.match(mailformat))
+{
+//document.musiccalculator.email.focus();
+return true;
+}
+else
+{
+alert("You have entered an invalid email address!");
+document.muiccalculator.email.focus();
+return false;
+}
+}
 
                 $("#calculate").click(function (event) {
                   event.preventDefault();
                   
+                  if(ValidateEmail(document.getElementById("email"))){
                   var streaming_service  =  $("#streaming_service").val();  
                   var streams_entered  = parseInt(($("#streams_entered").val()).replace(/\,/g,''));
                   if($.isNumeric(streaming_service*streams_entered)){
                   $("#answer").html("$"+((streaming_service*streams_entered).toFixed(2)));
               }
-                  
+                  }
                 });
+                
+                
                 
             });
         </script>
