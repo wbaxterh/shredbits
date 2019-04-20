@@ -137,14 +137,19 @@
 		
 		
 		
-		<h1> &hearts;&hearts;&hearts; I love you &hearts;&hearts;&hearts;</h1>
+		<h1> I love you &hearts;&hearts;&hearts;</h1>
 <!-- Display the countdown timer in an element -->
 <p id="demo"></p>
 <div id="images">
 	
 </div>
-<iframe src="imwithyou.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+<!--<iframe src="imwithyou.mp3" allow="autoplay" id="audio" style="display:none"></iframe>-->
+
 <!--<p id="audio">I'm with you - Grouplove</p>-->
+<audio class='audio' id="music" autoplay="true" controls loop>
+    <source src="video/imwithyou.mp3" type="audio/mpeg">
+    Your browser does not support playing this Audio
+</video>
 <br/>
 
 <script>
@@ -184,7 +189,7 @@ var x = setInterval(function() {
   }
 }, 1000);
 
-	$img = new Array ('kwast.jpg','kwast1.png', 'kwast2.png', 'kwast3.png', 'kwast4.png', 'kwast5.png', 'kwast6.j', 'kwast7.jpg',
+	$img = new Array ('kwast.jpg','kwast1.png', 'kwast2.png', 'kwast3.png', 'kwast4.png', 'kwast5.png', 'kwast6.jpg', 'kwast7.jpg',
 										'kwast8.jpg','kwast9.jpg','kwast10.jpg','kwast11.jpg','kwast12.jpg','kwast13.jpg','kwast14.jpg',
 										'kwast15.jpg','kwast16.jpg','kwast17.jpg','kwast18.jpg','kwast19.jpg','kwast20.jpg','kwast21.jpg',
 										'kwast22.jpg','kwast23.jpg','kwast24.jpg','kwast.jpg');
@@ -192,7 +197,7 @@ var x = setInterval(function() {
 	$random = Math.floor(Math.random() * 25) + 0;
 function changeImage(){
 	if($index > 33){
-		$index = Math.floor(Math.random() * 25) + 0;
+		$index = Math.floor(Math.random() * 33) + 0;
 	}
 $('#images').fadeTo('slow', 0.1, function()
 {
