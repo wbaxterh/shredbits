@@ -18,25 +18,29 @@
 				display: block;
 				height: 100%;
 				font-family: 'Love Ya Like A Sister', cursive;
-			
+			overflow-x: hidden;
 		}
 		body{
-			background-image: url("kwast.jpg");
+					background-image: url("europe_13th_century.jpg");
 			  /* Full height */
   height: 100%; 
+				
 
   /* Center and scale the image nicely */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+	
 		}
 		#demo{
 			text-align: center;
+			position: relative;
 			width: 100%;
 			background: rgba(0,0,0,0.7);
 			color: #fff;
 			font-size: 24px;
 			padding: 10px;
+			z-index: 5;
 		}
 		h1{
 			position: relative;
@@ -46,11 +50,59 @@
 			text-align: center;
 			color: #F77EB6;
 			text-shadow: 1px 1px 5px #000;
+			z-index: 5;
+		}
+		#images{
+			display: block;
+			position: relative;
+			margin: 0 auto;
+			top: -100px;
+			z-index: 0;
+			max-width: 800px;
+					background-image: url("kwast.jpg");
+			  /* Full height */
+  height: 100%; 
+				
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+			
+		}
+		#audio{
+			position: relative;
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+			font-size: 26px;
+			color: #fff;
+					color: #F77EB6;
+			text-shadow: 1px 1px 5px #000;
+		}
+		.audio{
+				position: relative;
+			display: block;
+			margin: 0 auto;
+			text-align: center;
+		}
+		@media screen and (max-width: 800px){
+			#images{
+				max-width: 300px;
+				height: 50%;
+				top: 0px;
+			}
 		}
 	</style>
-		<h1> &hearts;&hearts;&hearts;Countdown unitl Europe Together &hearts;&hearts;&hearts;</h1>
+		<h1> &hearts;&hearts;&hearts; I love you &hearts;&hearts;&hearts;</h1>
 <!-- Display the countdown timer in an element -->
 <p id="demo"></p>
+<div id="images">
+	
+</div>
+<iframe src="imwithyou.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+<!--<p id="audio">I'm with you - Grouplove</p>-->
+<br/>
 
 <script>
 // Set the date we're counting down to
@@ -89,21 +141,29 @@ var x = setInterval(function() {
   }
 }, 1000);
 
-	$img = new Array ('kwast1.jpg', 'kwast2.jpg', 'kwast3.jpg', 'kwast4.jpg', 'kwast5.jpg', 'kwast.jpg');
+	$img = new Array ('kwast.jpg','kwast1.jpg', 'kwast2.jpg', 'kwast3.jpg', 'kwast4.jpg', 'kwast5.jpg', 'kwast6.jpg', 'kwast7.jpg',
+										'kwast8.jpg','kwast9.jpg','kwast10.jpg','kwast11.jpg','kwast12.jpg','kwast13.jpg','kwast14.jpg',
+										'kwast15.jpg','kwast16.jpg','kwast17.jpg','kwast18.jpg','kwast19.jpg','kwast20.jpg','kwast21.jpg',
+										'kwast22.jpg','kwast23.jpg','kwast24.jpg','kwast.jpg');
 	$index = 0;
+	$random = Math.floor(Math.random() * 25) + 0;
 function changeImage(){
-	if($index > 4){
-		$index = 0;
+	if($index > 25){
+		$index = Math.floor(Math.random() * 25) + 0;
 	}
-$('body').fadeTo('slow', 0.5, function()
+$('#images').fadeTo('slow', 0.1, function()
 {
     $(this).css('background-image', 'url(' + $img[$index] + ')');
 }).delay(1000).fadeTo('slow', 3);
+
+$random = Math.floor(Math.random() * 25) + 0;
 $index++;
 }
 $(document).ready(function()
 {
-  setInterval (changeImage, 3000);
+  setInterval (changeImage, 4000);
+	
+	$('#music').play();
 });
 </script>
 	
