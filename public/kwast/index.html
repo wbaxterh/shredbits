@@ -54,7 +54,7 @@
 
 <script>
 // Set the date we're counting down to
-var countDownDate = new Date("May 7, 2019 13:05:00").getTime();
+var countDownDate = new Date("May 7, 2019 19:05:00").getTime();
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -62,8 +62,11 @@ var x = setInterval(function() {
   // Get todays date and time
   var now = new Date().getTime();
 
+
   // Find the distance between now and the count down date
   var distance = countDownDate - now;
+
+	
 
   // Time calculations for days, hours, minutes and seconds
   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -79,8 +82,29 @@ var x = setInterval(function() {
   if (distance < 0) {
     clearInterval(x);
     document.getElementById("demo").innerHTML = "EXPIRED";
+		
+
+		
+
   }
 }, 1000);
+
+	$img = new Array ('kwast1.jpg', 'kwast2.jpg', 'kwast3.jpg', 'kwast4.jpg', 'kwast5.jpg', 'kwast.jpg');
+	$index = 0;
+function changeImage(){
+	if($index > 4){
+		$index = 0;
+	}
+$('body').fadeTo('slow', 0.5, function()
+{
+    $(this).css('background-image', 'url(' + $img[$index] + ')');
+}).delay(1000).fadeTo('slow', 3);
+$index++;
+}
+$(document).ready(function()
+{
+  setInterval (changeImage, 3000);
+});
 </script>
 	
 </body>
