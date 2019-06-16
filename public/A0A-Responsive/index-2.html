@@ -186,38 +186,26 @@ border-color: transparent transparent transparent #712121;
 	}
 }
 @media screen and (max-width: 500px){
-	#portrait-wrapper{
-		display: block;
-		margin: 0 auto;
-	}
-	#headerTextPortrait{
-		display: block;
-		width: 70%;
-		top: 20px;
-	}
+
 	#left-wrapper{
-		top: -20px;
+		width: 50%;
 	}
-	#right-wrapper{
-		display: none;
-	}
+			#triangle{
+			position: absolute;
+			left: 100%;
+			top: 70%;
+			border-style: solid;
+border-width: 8px 0 8px 16px;
+border-color: transparent transparent transparent #712121;
+		}
+
 }
 }
 	</style>
 </head>
 <body>
 	<div id="wrapper">
-		<div id="portrait-wrapper">
-			<img id="headerTextPortrait" src="headerText.png"/>
-			<div id="bottomTextWrapper">
-			<p class="bottom-text">You have <span style="color: red; font-style: italic;">14</span> more orientation units to review</p><br style="height: 0;"/>
-			<p class="bottom-text" style="top: -5px;">You can return to this page in the future to review these units again.</p>
-			</div>
-			<div id="mobileTextWrapper">
-			<p class="mobile-text">You have <span style="color: red; font-style: italic;">14</span> more orientation units to review</p>
-			<p class="mobile-text" style="top: -25px;">You can return to this page in the future to review these units again.</p>
-			</div>
-		</div>
+
 		<div id="topTextWrapper">
 			<p id="top-text">You have <span style="color: red; font-style: italic;">14</span> more orientation units to review. You can return to this page in the future to review these units again.</p>
 		</div>
