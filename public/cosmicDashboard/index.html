@@ -82,7 +82,7 @@ var settings = {
 }
 
 $.ajax(settings).done(function (response) {
-  $("#response").text(response);
+  $("#response").text("<p> Declination: " + response.declination.value + "</p><p>inclination: " + response.inclination.value + "</p><p> Magnetic power in nano Teslas: " + response.total_intensity.value + "</p>");
   console.log(response);
 });
 </script>
