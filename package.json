@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/wbaxterh/shredbits#readme",
   "dependencies": {
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "pm2": "^3.0.3"
