@@ -20,11 +20,14 @@ $response = curl_exec($curl);
 $err = curl_error($curl);
 
 curl_close($curl);
+$json = json_decode($response, true);
 
 if ($err) {
   echo "cURL Error #:" . $err;
 } else {
-  echo $response;
+  echo "<p>Declination: ".$json["declination"]."</p>".
+  "<p>Inclination: ".$json["inclination"]."</p>".
+  "<p>Total Instensity: ".$json["total_intensity"]."</p>";
 }
 
 ?>
