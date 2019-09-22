@@ -66,10 +66,32 @@ h1{
 </style>
 </head>
 <body>
-  <p>response: </br/></p>
+  <p>response: </br></p>
   <div id="response"></div>
+  <div id="maps-response"></div>
+  <canvas id="myChart" width="400" height="400"></canvas>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
 <script>
+    
+    $(function() {
+      
+        
+  var settings1 = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://maps.googleapis.com/maps/api/elevation/json?locations=30.830750,-83.278831&key=AIzaSyAg72owKAP_3EnxydBxXlcjfPAVefDVZNE%0A",
+  "method": "GET",
+  "headers": {
+    "cache-control": "no-cache",
+    "Postman-Token": "2602016a-f75f-498a-8e03-908d7c55aa37"
+  }
+}
+
+$.ajax(settings1).done(function (response1) {
+  $("maps-response").text(" Elevation: "  + parseInt(settings1.elevation) * 0.001 + "km");
+  console.log(response1);
+});
 var settings = {
   "async": true,
   "crossDomain": true,
@@ -85,4 +107,29 @@ $.ajax(settings).done(function (response) {
   $("#response").text("<p> Declination: " + response.declination.value + "</p><p>inclination: " + response.inclination.value + "</p><p> Magnetic power in nano Teslas: " + response.total_intensity.value + "</p>");
   console.log(response);
 });
+      
+    var today = new Date();
+    var daysSorted = [];
+
+    for(var i = 0; i < goBackDays; i++)
+    {
+        var newDate = new Date(today.setDate(today.getDate() - 1));
+        daysSorted.push(days[newDate.getDay()]);
+    }
+
+    alert(daysSorted);
+
+
+  var ctx = $('#myChart');
+    var myChart = new Chart(ctx, {
+      type: 'line',
+    data: daysSorted,
+    options: options
+
+    });
+    
+ 
+
+   });
+
 </script>
