@@ -77,6 +77,21 @@ h1{
     $(function() {
       
         
+  
+var settings = {
+  "async": true,
+  "crossDomain": true,
+  "url": "https://globalmagnet.amentum.space/api/calculate_magnetic_field?altitude=%200.0618744&longitude=-83.278831&latitude=30.830750&year=2019",
+  "method": "GET",
+  "headers": {
+    "cache-control": "no-cache",
+    "Postman-Token": "d7b55cf4-b8c6-4c9e-97f3-409fe0ef35ce"
+  }
+}
+
+$.ajax(settings).done(function (response) {
+  $("#response").text("<p> Declination: " + response.declination.value + "</p><p>inclination: " + response.inclination.value + "</p><p> Magnetic power in nano Teslas: " + response.total_intensity.value + "</p>");
+  console.log(response);
   var settings1 = {
   "async": true,
   "crossDomain": true,
@@ -92,20 +107,6 @@ $.ajax(settings1).done(function (response1) {
   $("#maps-response").text(" Elevation: "  + parseInt(settings1.elevation) * 0.001 + "km");
   console.log(response1 + "hi from cosnole");
 });
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://globalmagnet.amentum.space/api/calculate_magnetic_field?altitude=%200.0618744&longitude=-83.278831&latitude=30.830750&year=2019",
-  "method": "GET",
-  "headers": {
-    "cache-control": "no-cache",
-    "Postman-Token": "d7b55cf4-b8c6-4c9e-97f3-409fe0ef35ce"
-  }
-}
-
-$.ajax(settings).done(function (response) {
-  $("#response").text("<p> Declination: " + response.declination.value + "</p><p>inclination: " + response.inclination.value + "</p><p> Magnetic power in nano Teslas: " + response.total_intensity.value + "</p>");
-  console.log(response);
 });
       
     var today = new Date();
