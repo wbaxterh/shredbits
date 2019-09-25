@@ -89,8 +89,8 @@ h1{
 }
 
 $.ajax(settings1).done(function (response1) {
-  $("maps-response").text(" Elevation: "  + parseInt(settings1.elevation) * 0.001 + "km");
-  console.log(response1);
+  $("#maps-response").text(" Elevation: "  + parseInt(settings1.elevation) * 0.001 + "km");
+  console.log(response1 + "hi from cosnole");
 });
 var settings = {
   "async": true,
